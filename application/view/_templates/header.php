@@ -21,11 +21,18 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="<?php echo URL ; ?>">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL ; ?>fights/">Information Center</a>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Information Center</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/fighters">Fighters</a>
+                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/leaderboards">Leaderboards</a>
+                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/arena">Arena</a>
+                  </div>
                 </li>
+
                 <?php if(!isset($_SESSION['username'])){?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo URL ; ?>login/">Login</a>

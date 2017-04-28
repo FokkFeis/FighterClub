@@ -19,7 +19,7 @@ class Home extends Model
 
   public function showAllUsers()
   {
-    $sql = "SELECT * FROM showmyuser";
+    $sql = "SELECT * FROM showMyUser";
     $query = $this->db->prepare($sql);
     $query->execute();
 
@@ -42,7 +42,7 @@ class Home extends Model
     $parameters = array(':id' => $userID, ':email' => $nEmail);
     $query->execute($parameters);
   }
-  
+
   public function updatePassword($userID,$nPassword)
   {
     $sql ="CALL updatePassword(:id, :password);";
