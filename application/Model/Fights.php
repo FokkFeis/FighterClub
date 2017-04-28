@@ -31,6 +31,7 @@ class Fights extends Model
     $parameters = array(':name'=>$fightername);
     $query->execute($parameters);
   }
+  
   public function roll($rolls, $sides)
   {
     $num = 0;

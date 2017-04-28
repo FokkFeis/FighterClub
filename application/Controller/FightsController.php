@@ -75,12 +75,12 @@ class FightsController
       header('Location: ' . URL . 'home/account');
     }
   }
+
   public function fight()
   {
   $fighter = new Fights();
   $fighters = $fighter->getAllFighters();
   require APP . '/view/fights/fight.php';
-
   }
   public function ajaxGetFighter()
   {
