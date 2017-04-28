@@ -1,4 +1,4 @@
-<form method="post" action="#">
+
     <div class="col-md-10">
         <div class="col-md-3 form-group">
             <select class="form-control" id="select1">
@@ -21,5 +21,9 @@
           <div class="fighter" id="fighter2"></div>
         </div>
     </div>
-    <input type="submit" value="Fight!" />
-</form>
+    <div class ="col-md-12 col-md-push-4">
+      <button class="btn btn-danger" id="fightButton" value="Fight!">Fight</button>
+
+    </div>
+    <div class = "col-md-12 col-md-push-4" id="fightBox">
+    </div>
