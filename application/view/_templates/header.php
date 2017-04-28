@@ -6,17 +6,10 @@
     <title>Fighter Club</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- JS -->
-    <!-- please note: The JavaScript files are loaded in the footer to speed up page construction -->
-    <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
     <link href="<?php echo URL; ?>css/master.css" rel="stylesheet">
-    <!-- CSS <link href="<?php # echo URL; ?>css/style.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+    <!-- Bootstrap 4 cdn-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"></head>
 <body>
-    <!-- logo, check the CSS file for more info how the logo "image" is shown -->
-    <!-- <div class="logo"></div> -->
 <div class="container">
     <!-- navigation -->
     <div class="row">
