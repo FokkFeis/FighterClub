@@ -4,6 +4,7 @@ var selectedFighter1;
 var selectedFighter2;
 var diff;
 var fighter1_roll;
+var fighter2_roll;
 var getFighterInfo = function(fighterName,selector) {
 $.ajax({
     url: url + "/fights/ajaxGetFighter",
@@ -39,6 +40,7 @@ var showFighterInfo = function(jsonData,selector){
     );
     var tempMMR =fighterObj.strength;
     fighter1_mmr = tempMMR;
+    selectedFighter1 = fighterObj.FighterName;
   }else {
     $("#fighter2").html(`
       <p>Name: ${fighterObj.FighterName}</p>
@@ -47,6 +49,7 @@ var showFighterInfo = function(jsonData,selector){
       <p>League: ${fighterObj.League}</p>`
     );
     var tempMMR =fighterObj.strength;
+    selectedFighter2 = fighterObj.FighterName;
     fighter2_mmr = tempMMR;
   }
 
@@ -64,17 +67,53 @@ function getDiff(mmr1,mmr2){
 
   if(mmr1 < mmr2){
     diff = mmr2/mmr1;
+    fighter2_roll = dice.roll() * diff;
+    fighter1_roll = dice.roll();
   }
   if(mmr1 > mmr2){
     diff = mmr1/mmr2;
+    fighter1_roll = dice.roll() * diff;
+    fighter2_roll = dice.roll();
   }
   if(mmr1 == mmr2){
     diff = 0;
+    fighter1_roll = dice.roll();
+    fighter2_roll = dice.roll();
   }
 }
+var round = 0, howManyTimes = 3;
+var fighter1wins, fighter2wins, fightTies;
+var roundWinner = [];
+function fight() {
+    getDiff(Number(fighter1_mmr),Number(fighter2_mmr));
+    function isWinner(fighter1,fighter2){
+      if(fighter1 > fighter2){
+        console.log(selectedFighter1);
+        fighter1wins += 1;
+        roundWinner[round] = String(selectedFighter1);
+      }
+      if(fighter1 < fighter2){
+        fighter2wins += 1;
+        roundWinner[round] = String(selectedFighter2);
+      }
+      if(fighter1 == fighter2){
+        fightTies += 1;
+        roundWinner[round] = "Tie";
+      }
+    }
+    isWinner(fighter1_roll,fighter2_roll);
+    $('#fightBox').html();
+    $('#fightBox').html(selectedFighter1 +" Rolls " + fighter1_roll +"<br>"+selectedFighter2 + " Rolls " + fighter2_roll + "<br>round: "+ (round+1) +"<br>Fight Score: "+ roundWinner + "<br> Round Winner: "+roundWinner[round]);
+    round++;
+    if( round < howManyTimes ){
+        setTimeout( fight, 3000 );
+    }
+}
+
 
 $('#fightButton').on('click',function(){
-  getDiff(Number(fighter2_mmr),Number(fighter1_mmr));
-  
-  $('#fightBox').html(diff);
+  roundWinner = [];
+  round = 0;
+  fight();
+
 })
