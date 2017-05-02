@@ -1,5 +1,5 @@
-var fighter1_mmr;
-var fighter2_mmr;
+var fighter1_mmr =0;
+var fighter2_mmr =0;
 var selectedFighter1;
 var selectedFighter2;
 var diff;
@@ -37,7 +37,8 @@ var showFighterInfo = function(jsonData,selector){
       <p>Wins: ${fighterObj.wins}</p>
       <p>League: ${fighterObj.League}</p>`
     );
-    fighter1_mmr = fighterObj.strength;
+    var tempMMR =fighterObj.strength;
+    fighter1_mmr = tempMMR;
   }else {
     $("#fighter2").html(`
       <p>Name: ${fighterObj.FighterName}</p>
@@ -45,7 +46,8 @@ var showFighterInfo = function(jsonData,selector){
       <p>Wins: ${fighterObj.wins}</p>
       <p>League: ${fighterObj.League}</p>`
     );
-    fighter2_mmr = fighterObj.strength;
+    var tempMMR =fighterObj.strength;
+    fighter2_mmr = tempMMR;
   }
 
 };
@@ -58,19 +60,21 @@ var dice = {
   }
 }
 
-$('#fightButton').on('click',function(){
-  function diff(mmr1,mmr2){
-    var diff;
-    if(mmr1 < mmr2){
-      diff = mmr1/mmr2;
-      return diff;
-    }
-    if(mmr2 > mmr1){
-      diff = mmr2/mmr1
-      return diff;
-    }
+function getDiff(mmr1,mmr2){
+
+  if(mmr1 < mmr2){
+    diff = mmr2/mmr1;
   }
+  if(mmr1 > mmr2){
+    diff = mmr1/mmr2;
+  }
+  if(mmr1 == mmr2){
+    diff = 0;
+  }
+}
 
-
-  $('#fightBox').html(diff(fighter2_mmr, fighter1_mmr));
+$('#fightButton').on('click',function(){
+  getDiff(Number(fighter2_mmr),Number(fighter1_mmr));
+  
+  $('#fightBox').html(diff);
 })
