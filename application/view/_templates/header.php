@@ -18,7 +18,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
         <a class="navbar-brand" href="<?php echo URL ; ?>">Fighters Club</a>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo URL ; ?>">Home</a>
@@ -54,15 +54,17 @@
                   <h4 class="card-title">Account overview</h4>
                   <ul class="list-group list-group-flush">
                     <?php if(isset($_SESSION['username'])){
-                        foreach ($data as $key) {
-                          ?>
+                        foreach ($data as $key) { ?>
                           <li class="list-group-item"><?php echo $key->Username ?></li>
                           <li class="list-group-item">Coins: <?php echo $key->Coins ?></li>
-                        <?php }
-                      } else{ ?>
-                        <li class="list-group-item">Please login to see your info</li>
-                        <a class="btn btn-primary" href="<?php echo URL ; ?>login/">Login</a>
-                  <?php } ?>
+                        <?php } if ($_SESSION['isAdmin'] === '1') {?>
+                          <a class="btn btn-danger" href="<?php echo URL ; ?>home/admin">Admin Zone</a>
+                          <?php }
+                        }
+                        else{ ?>
+                          <li class="list-group-item">Please login to see your info</li>
+                          <a class="btn btn-primary" href="<?php echo URL ; ?>login/">Login</a>
+                        <?php } ?>
                 </div>
               </div>
             </div>

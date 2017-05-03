@@ -6,20 +6,9 @@ if(!isset($_SESSION['username']))
   header('Location: ' . URL . 'login');
 }
 
-if($_SESSION['isAdmin'] === '1'){
-    require APP . 'view/home/admin.php';
-    $usersEnc = json_encode($users,true);
-    $usersDec = json_decode($usersEnc,true);
-}
-
   $userEnc = json_encode($data, true);
   $userDec = json_decode($userEnc, true);
-  #var_dump($userDec);
-
-
-
-
- ?>
+?>
 <div class = "col-md-10">
   <form class="" action="<?php echo URL ; ?>home/updateUserInfo" method="post">
     <div class="input-group">

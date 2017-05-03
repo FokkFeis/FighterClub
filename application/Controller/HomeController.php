@@ -54,6 +54,21 @@ class HomeController
       require APP . 'view/_templates/footer.php';
     }
 
+    public function admin(){
+      if(isset($_SESSION['username'])){
+        $name = htmlspecialchars($_SESSION['username']);
+        $myUser = new Home();
+        $data = $myUser->getMyUser($name);
+      }
+      if($_SESSION['isAdmin'] === '1'){
+          $myUsers = new Home();
+          $users = $myUsers->showAllUsers();
+      }
+      require APP . 'view/_templates/header.php';
+      require APP . 'view/home/admin.php';
+      require APP . 'view/_templates/footer.php';
+    }
+
     public function allUsers()
     {
       if($_SESSION['isAdmin'] === '1'){
