@@ -9,7 +9,6 @@ if(!isset($_SESSION['username']))
   $userEnc = json_encode($data, true);
   $userDec = json_decode($userEnc, true);
 ?>
-<div class = "col-md-10">
   <form class="" action="<?php echo URL ; ?>home/updateUserInfo" method="post">
     <div class="input-group">
       <span class="input-group-addon">Username</span>
@@ -37,7 +36,3 @@ if(!isset($_SESSION['username']))
       <span>
     </div>
   </form>
-
-  <a class = "btn btn-danger" href="<?php echo URL; ?> home/signout">Signout</a>
-</div>
-</div>
