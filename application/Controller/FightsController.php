@@ -82,6 +82,7 @@ class FightsController
   $fighters = $fighter->getAllFighters();
   require APP . '/view/fights/fight.php';
   }
+
   public function ajaxGetFighter()
   {
     if(isset($_GET['fighterName'])){
@@ -91,7 +92,14 @@ class FightsController
       $jsonFighter = json_encode($selectedFighter);
       echo $jsonFighter;
     }
+  }
 
+  public function ajaxAddFight()
+  {
+    if(isset($_POST['fightData']))
+    {
+      
+    }
   }
 }
 

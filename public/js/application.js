@@ -1,10 +1,11 @@
 var fighter1_mmr =0;
 var fighter2_mmr =0;
-var selectedFighter1;
+var selectedFighter1, fighter1ID, fighter2ID;
 var selectedFighter2;
 var diff;
 var fighter1_roll;
 var fighter2_roll;
+
 var getFighterInfo = function(fighterName,selector) {
 $.ajax({
     url: url + "/fights/ajaxGetFighter",
@@ -39,6 +40,7 @@ var showFighterInfo = function(jsonData,selector){
     var tempMMR =fighterObj.strength;
     fighter1_mmr = tempMMR;
     selectedFighter1 = fighterObj.FighterName;
+    fighter1ID = fighterObj.ID;
   }else {
     $("#fighter2").html(`
       <li class="list-group-item">Strength: ${fighterObj.strength}</li>
@@ -48,6 +50,7 @@ var showFighterInfo = function(jsonData,selector){
     var tempMMR =fighterObj.strength;
     selectedFighter2 = fighterObj.FighterName;
     fighter2_mmr = tempMMR;
+    fighter2ID = fighterObj.ID;
   }
 
 };
@@ -112,4 +115,10 @@ $('#fightButton').on('click',function(){
   roundWinner = [];
   round = 0;
   fight();
+  $.ajax({
+    data: data,
+    type: "POST",
+    url: "fights/ajaxAddFight",
+
+  })
 });

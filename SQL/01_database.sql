@@ -82,6 +82,7 @@ DROP TABLE IF EXISTS fights;
 CREATE TABLE fights
 (
     ID INT(11) NOT NULL AUTO_INCREMENT,
+    result CHAR(1),
     status VARCHAR(255),
     startTime TIMESTAMP,
     CONSTRAINT fights_id_pk PRIMARY KEY (ID)

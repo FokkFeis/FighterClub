@@ -51,6 +51,13 @@ class Fights extends Model
       return ($fighter2 / $fighter1);
     }
   }
+
+  public function ajaxAddFight($f1,$f2,$result)
+  {
+      //todo
+      
+  }
+
 }
 
 ?>
