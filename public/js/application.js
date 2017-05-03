@@ -119,6 +119,6 @@ $('#fightButton').on('click',function(){
     data: data,
     type: "POST",
     url: "fights/ajaxAddFight",
-
+    //unfinished 
   })
 });
