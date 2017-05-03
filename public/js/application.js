@@ -86,6 +86,11 @@ var fighter1wins, fighter2wins, fightTies;
 var roundWinner = [];
 function fight() {
     getDiff(Number(fighter1_mmr),Number(fighter2_mmr));
+    if (fighter1ID == fighter2ID){
+      $('#fightBox').html()
+      $('#fightBox').html('Cannot be same fighter fighting');
+    }
+    else{
     function isWinner(fighter1,fighter2){
       if(fighter1 > fighter2){
         console.log(selectedFighter1);
@@ -109,7 +114,7 @@ function fight() {
         setTimeout( fight, 3000 );
     }
 }
-
+}
 
 $('#fightButton').on('click',function(){
   roundWinner = [];
@@ -119,6 +124,6 @@ $('#fightButton').on('click',function(){
     data: data,
     type: "POST",
     url: "fights/ajaxAddFight",
-    //unfinished 
+    //unfinished
   })
 });
