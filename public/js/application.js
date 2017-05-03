@@ -28,25 +28,22 @@ $("select")
   })
   .trigger("change");
 
-//work in progress
 var showFighterInfo = function(jsonData,selector){
   var fighterObj = jQuery.parseJSON(jsonData);
   if (selector === 1) {
     $("#fighter1").html(`
-      <p>Name: ${fighterObj.FighterName}</p>
-      <p>Strength: ${fighterObj.strength}</p>
-      <p>Wins: ${fighterObj.wins}</p>
-      <p>League: ${fighterObj.League}</p>`
+      <li class="list-group-item">Strength: ${fighterObj.strength}</li>
+      <li class="list-group-item">Wins: ${fighterObj.wins}</li>
+      <li class="list-group-item">League: ${fighterObj.League}</li>`
     );
     var tempMMR =fighterObj.strength;
     fighter1_mmr = tempMMR;
     selectedFighter1 = fighterObj.FighterName;
   }else {
     $("#fighter2").html(`
-      <p>Name: ${fighterObj.FighterName}</p>
-      <p>Strength: ${fighterObj.strength}</p>
-      <p>Wins: ${fighterObj.wins}</p>
-      <p>League: ${fighterObj.League}</p>`
+      <li class="list-group-item">Strength: ${fighterObj.strength}</li>
+      <li class="list-group-item">Wins: ${fighterObj.wins}</li>
+      <li class="list-group-item">League: ${fighterObj.League}</li>`
     );
     var tempMMR =fighterObj.strength;
     selectedFighter2 = fighterObj.FighterName;
@@ -115,5 +112,4 @@ $('#fightButton').on('click',function(){
   roundWinner = [];
   round = 0;
   fight();
-
-})
+});

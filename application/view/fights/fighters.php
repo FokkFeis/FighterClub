@@ -1,14 +1,15 @@
-<div class = "col-md-10">
-<?php foreach($allFighters as $fighters) {?>
-  <div class="col-md-3">
-    <div class = "fighter">
-      <p>Name: <?php echo $fighters->FighterName ?></p>
-      <p>Strength: <?php echo $fighters->strength ?></p>
-      <p>Wins: <?php echo $fighters->wins ?></p>
-      <p>League: <?php echo $fighters->League?></p>
-      <br>
+
+<div class="card-columns">
+  <?php foreach($allFighters as $fighters) {?>
+    <div class="card">
+      <div class = "card-block">
+        <h5 class="card-title"><?php echo $fighters->FighterName ?></h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Strength: <?php echo $fighters->strength ?></li>
+          <li class="list-group-item">Wins: <?php echo $fighters->wins ?></li>
+          <li class="list-group-item">League: <?php echo $fighters->League?></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <?php } ?>
- </div>
-</div> <!-- end of sidebar -->
+    <?php } ?>
+</div>
