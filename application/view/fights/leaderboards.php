@@ -1,21 +1,20 @@
-<div class="col-md-10">
-  <h1> Fighter Leaderboard</h1>
-  <table class = "table table-striped ">
+<table class="table table-striped">
+  <thead>
     <tr>
       <th>Name</th>
       <th>Strength</th>
       <th>Wins</th>
       <th>League</th>
-      <?php foreach ($allFighters as $fighters){            ?>
-      <?php echo "<tr>";                                    ?>
-      <?php echo "<td>" . $fighters->FighterName . "</td>"; ?>
-      <?php echo "<td>" . $fighters->strength    . "</td>"; ?>
-      <?php echo "<td>" . $fighters->wins        . "</td>"; ?>
-      <?php echo "<td>" . $fighters->League      . "</td>"; ?>
-      <?php }
-      echo "</tr>";
-       ?>
-
-  </table>
-</div>
-</div> <!-- end of sidebar -->
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($allFighters as $fighters){ ?>
+      <tr>
+        <td><?php echo $fighters->FighterName; ?></td>
+        <td><?php echo $fighters->strength; ?></td>
+        <td><?php echo $fighters->wins; ?></td>
+        <td><?php echo $fighters->League; ?></td>
+      </tr>
+    <?php } ?>
+  </tbody>
+</table>
