@@ -13,7 +13,7 @@ class LoginController
       header('location: ' . URL . '');
     }
     require APP . 'view/_templates/header.php';
-    require APP . 'view/_templates/sidebar.php';
+    #require APP . 'view/_templates/sidebar.php';
     require APP . 'view/login/login.php';
     require APP . 'view/_templates/footer.php';
   }

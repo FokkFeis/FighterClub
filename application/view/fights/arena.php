@@ -27,7 +27,6 @@
 </div>
 
 <button class="btn btn-danger" id="fightButton" value="Fight!">Fight</button>
-
+<div class = "col-md-12" id="fightBox">
 </div>
-<div class = "col-md-12 col-md-push-4" id="fightBox">
 </div>

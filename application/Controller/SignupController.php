@@ -15,7 +15,7 @@ Class SignupController
       $data = $myUser->getMyUser($name);
     }
     require APP . 'view/_templates/header.php';
-    require APP . 'view/_templates/sidebar.php';
+    #require APP . 'view/_templates/sidebar.php';
     require APP . 'view/signup/index.php';
     require APP . 'view/_templates/footer.php';
   }

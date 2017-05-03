@@ -14,7 +14,7 @@ class FightsController
       $data = $myUser->getMyUser($name);
     }
     require APP . 'view/_templates/header.php';
-    require APP . 'view/_templates/sidebar.php';
+    #require APP . 'view/_templates/sidebar.php';
     require APP . 'view/fights/index.php';
     require APP . 'view/_templates/footer.php';
   }
@@ -29,7 +29,7 @@ class FightsController
     $fighter = new Fights();
     $allFighters = $fighter->getAllFighters();
     require APP . 'view/_templates/header.php';
-    require APP . 'view/_templates/sidebar.php';
+    #require APP . 'view/_templates/sidebar.php';
     require APP . 'view/fights/leaderboards.php';
     require APP . 'view/_templates/footer.php';
   }
@@ -44,7 +44,7 @@ class FightsController
     $fighter = new Fights();
     $allFighters = $fighter->getAllFighters();
     require APP . 'view/_templates/header.php';
-    require APP . 'view/_templates/sidebar.php';
+    #require APP . 'view/_templates/sidebar.php';
     require APP . 'view/fights/fighters.php';
     require APP . 'view/_templates/footer.php';
   }
@@ -59,7 +59,7 @@ class FightsController
       $data = $myUser->getMyUser($name);
     }
     require APP . 'view/_templates/header.php';
-    require APP . '/view/_templates/sidebar.php';
+    #require APP . '/view/_templates/sidebar.php';
     require APP . '/view/fights/arena.php';
     require APP . '/view/_templates/footer.php';
   }

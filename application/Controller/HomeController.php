@@ -31,7 +31,7 @@ class HomeController
       }
 
       require APP . 'view/_templates/header.php';
-      require APP . 'view/_templates/sidebar.php';
+      #require APP . 'view/_templates/sidebar.php';
       require APP . 'view/home/index.php';
       require APP . 'view/_templates/footer.php';
     }
@@ -49,7 +49,7 @@ class HomeController
       }
 
       require APP . 'view/_templates/header.php';
-      require APP . 'view/_templates/sidebar.php';
+      #require APP . 'view/_templates/sidebar.php';
       require APP . 'view/home/account.php';
       require APP . 'view/_templates/footer.php';
     }
