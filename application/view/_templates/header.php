@@ -38,9 +38,12 @@
                     <a class="nav-link" href="<?php echo URL ; ?>login/">Login</a>
                 </li>
                 <?php } else{ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL ; ?>home/account">My Account</a>
-                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<?php echo URL ; ?>home/account">My Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class = "nav-link bg-danger" href="<?php echo URL; ?> home/signout">Signout</a>
+                  </li>
                 <?php } ?>
             </ul>
         </div>
