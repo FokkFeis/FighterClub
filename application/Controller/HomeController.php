@@ -127,11 +127,17 @@ class HomeController
         $userUpdate->updatePassword((int)$_SESSION['ID'],$new_password);
         header('Location: ' . URL . 'home/account');
       }
+
+      //Find out how to add
+      if(isset($_POST['makeAdmin'])){
+        $userUpdate->makeAdmin((int)$_SESSION['ID']);
+        session_destroy();
+        header('Location: ' . URL . 'login/');
+      }
     }
     /**
      * Page->Fighters
      * Lists fighters
      *
      */
-
 }

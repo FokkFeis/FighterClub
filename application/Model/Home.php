@@ -50,5 +50,13 @@ class Home extends Model
     $parameters = array(':id' => $userID, ':password' => $nPassword);
     $query->execute($parameters);
   }
+
+  public function makeAdmin($userID)
+  {
+    $sql = "UPDATE users SET isAdmin = 1 WHERE id = :id";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':id' => $userID);
+    $query->execute($parameters);
+  }
 }
  ?>
