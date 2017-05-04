@@ -19,6 +19,9 @@ if(!isset($_SESSION['username']) && $_SESSION['isAdmin'] != '1')
   <div class="btn-group" role="group">
       <button type="button" class="btn btn-secondary" id="addFighterButton">Add fighters</button>
   </div>
+  <div class="btn-group" role="group">
+      <button type="button" class="btn btn-secondary" id="makeAdminButton">Make admin</button>
+  </div>
 </div>
 <hr>
 <div class = "col-md-10" id="displayBox"><div>

@@ -21,10 +21,21 @@ $(function() {
         $('#displayBox').html("We've incountered an SQL error, contact the system owner");
       });
   });
-  
+
   $('#addFighterButton').on('click',function(){
     $('#displayBox').html('');
     $.ajax(url + "/home/addFighter")
+      .done(function(result) {
+        $('#displayBox').html(result);
+      })
+      .fail(function(){
+        $('#displayBox').html("We've incountered an SQL error, contact the system owner");
+      });
+  });
+
+  $('#makeAdminButton').on('click',function(){
+    $('#displayBox').html('');
+    $.ajax(url + "/home/makeAdmin")
       .done(function(result) {
         $('#displayBox').html(result);
       })

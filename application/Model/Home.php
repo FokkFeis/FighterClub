@@ -51,11 +51,11 @@ class Home extends Model
     $query->execute($parameters);
   }
 
-  public function makeAdmin($userID)
+  public function makeAdmin($name)
   {
-    $sql = "UPDATE users SET isAdmin = 1 WHERE id = :id";
+    $sql = "UPDATE users SET isAdmin = 1 WHERE name = :name";
     $query = $this->db->prepare($sql);
-    $parameters = array(':id' => $userID);
+    $parameters = array(':name' => $name);
     $query->execute($parameters);
   }
 }

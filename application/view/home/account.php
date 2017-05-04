@@ -40,8 +40,3 @@ if(!isset($_SESSION['username']))
   </form>
 </div>
 <hr>
-<div class="container-fluid">
-  <form class = "" action ="<?php echo URL ; ?>home/updateUserInfo" method="post">
-    <input class="btn btn-danger" type="submit" name="makeAdmin" value="Make me admin">
-  </form>
-</div>

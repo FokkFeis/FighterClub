@@ -99,6 +99,18 @@ class HomeController
       }
     }
 
+    public function makeAdmin()
+    {
+      if($_SESSION['isAdmin'] === '1'){
+        $myUsers = new Home();
+        $users = $myUsers->showAllUsers();
+        require APP . 'view/home/makeAdmin.php';
+      }
+      else{
+        header('location: ' . URL);
+      }
+    }
+
     public function signout()
     {
       session_destroy();
@@ -128,11 +140,10 @@ class HomeController
         header('Location: ' . URL . 'home/account');
       }
 
-      //Find out how to add
-      if(isset($_POST['makeAdmin'])){
-        $userUpdate->makeAdmin((int)$_SESSION['ID']);
-        session_destroy();
-        header('Location: ' . URL . 'login/');
+      if(isset($_POST['makeAdmin']) && isset($_POST['selectedUser'])){
+        $selectedUser = $_POST['selectedUser'];
+        $userUpdate->makeAdmin($selectedUser);
+        header('Location: ' . URL . 'home/admin');
       }
     }
     /**
