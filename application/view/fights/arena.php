@@ -1,7 +1,7 @@
 <div class="card-deck">
   <div class="card">
     <div class = "card-block">
-      <select class="form-control card-title" id="select1">
+      <select class="form-control card-title custom-select" id="select1">
         <?php foreach ($allFighters as $fighters) {
           echo "<option value=" . $fighters->FighterName .">". $fighters->FighterName . "</option>";}
           ?>
@@ -16,7 +16,7 @@
 
   <div class="card">
     <div class = "card-block">
-      <select class="form-control card-title" id="select2">
+      <select class="form-control card-title custom-select" id="select2">
         <?php foreach ($allFighters as $fighters) {
           echo "<option value=" . $fighters->FighterName .">". $fighters->FighterName . "</option>";}
           ?>
@@ -27,6 +27,11 @@
 </div>
 <hr>
 <div class="container-fluid">
-  <button class="btn btn-danger" id="fightButton" value="Fight!">Fight</button>
+  <form class="form-inline" return false;>
+      <select class="custom-select" id="selBetFighter"></select>
+      <input type="text" name="amountToBet" class="form-control" id="amountToBet" placeholder="Amount to bet">
+      <button class="btn btn-danger" id="fightButton" value="Fight!">Confirm bet</button>
+  </form>
 </div>
+
 <div class = "col-md-12" id="fightBox"></div>

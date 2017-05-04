@@ -5,6 +5,7 @@ var selectedFighter2;
 var diff;
 var fighter1_roll;
 var fighter2_roll;
+var fighters;
 
 var getFighterInfo = function(fighterName,selector) {
 $.ajax({
@@ -26,6 +27,13 @@ $("select")
     getFighterInfo(selectedFighter1,1);
     selectedFighter2 = $("#select2 option:selected").text();
     getFighterInfo(selectedFighter2,2);
+
+    //Have to empty the selector options before adding others.
+    $('#selBetFighter')
+      .empty()
+      .append('<option value="fighter1">' + selectedFighter1 + '</option>')
+      .append('<option value="fighter2">' + selectedFighter2 + '</option>');
+
   })
   .trigger("change");
 
@@ -37,6 +45,7 @@ var showFighterInfo = function(jsonData,selector){
       <li class="list-group-item">Wins: ${fighterObj.wins}</li>
       <li class="list-group-item">League: ${fighterObj.League}</li>`
     );
+
     var tempMMR =fighterObj.strength;
     fighter1_mmr = tempMMR;
     selectedFighter1 = fighterObj.FighterName;
@@ -47,6 +56,7 @@ var showFighterInfo = function(jsonData,selector){
       <li class="list-group-item">Wins: ${fighterObj.wins}</li>
       <li class="list-group-item">League: ${fighterObj.League}</li>`
     );
+
     var tempMMR =fighterObj.strength;
     selectedFighter2 = fighterObj.FighterName;
     fighter2_mmr = tempMMR;
