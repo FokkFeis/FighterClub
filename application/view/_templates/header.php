@@ -32,19 +32,6 @@
                     <a class="dropdown-item" href="<?php echo URL ; ?>fights/arena">Arena</a>
                   </div>
                 </li>
-
-                <?php if(!isset($_SESSION['username'])){?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL ; ?>login/">Login</a>
-                </li>
-                <?php } else{ ?>
-                  <li class="nav-item">
-                      <a class="nav-link" href="<?php echo URL ; ?>home/account">My Account</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class = "nav-link bg-danger" href="<?php echo URL; ?> home/signout">Signout</a>
-                  </li>
-                <?php } ?>
             </ul>
         </div>
     </nav>
@@ -60,14 +47,19 @@
                         foreach ($data as $key) { ?>
                           <li class="list-group-item"><?php echo $key->Username ?></li>
                           <li class="list-group-item">Coins: <?php echo $key->Coins ?></li>
-                        <?php } if ($_SESSION['isAdmin'] === '1') {?>
-                          <a class="btn btn-danger" href="<?php echo URL ; ?>home/admin">Admin Zone</a>
-                          <?php }
-                        }
-                        else{ ?>
-                          <li class="list-group-item">Please login to see your info</li>
-                          <a class="btn btn-primary" href="<?php echo URL ; ?>login/">Login</a>
-                        <?php } ?>
+                          <li class="list-group-item"></li>
+                        <?php }?>
+                        <div class="btn-group-vertical" role="group">
+                          <a class="btn btn-outline-primary" href="<?php echo URL ; ?>home/account">My Account</a>
+                          <?php if ($_SESSION['isAdmin'] === '1') {?>
+                            <a class="btn btn-outline-danger" href="<?php echo URL ; ?>home/admin">Admin Zone</a>
+                            <?php }?>
+                            <a class="btn btn-outline-danger" href="<?php echo URL; ?> home/signout">Signout</a>
+                        </div>
+                          <?php } else{ ?>
+                            <li class="list-group-item">Please login to see your info</li>
+                            <a class="btn btn-primary" href="<?php echo URL ; ?>login/">Login</a>
+                          <?php } ?>
                 </div>
               </div>
             </div>
