@@ -27,11 +27,14 @@
 </div>
 <hr>
 <div class="container-fluid">
-  <form class="form-inline" return false;>
-      <select class="custom-select" id="selBetFighter"></select>
-      <input type="text" name="amountToBet" class="form-control" id="amountToBet" placeholder="Amount to bet">
-      <button class="btn btn-danger" id="fightButton" value="Fight!">Confirm bet</button>
-  </form>
+  <div class="form-inline">
+    <select class="custom-select" id="selBetFighter"></select>
+    <input type="text" name="amountToBet" class="form-control" id="amountToBet" placeholder="Amount to bet">
+    <button class="btn btn-success" id="confirmBetButton" value="Fight!">Confirm bet</button>
+  </div>
+  <div class="container-fluid" id="currentBets">
+  </div>
+  <button class="btn btn-outline-danger btn-lg" id="fightButton" value="Fight!">Fight</button>
 </div>
-
+<hr>
 <div class = "col-md-12" id="fightBox"></div>

@@ -135,5 +135,16 @@ $('#fightButton').on('click',function(){
     type: "POST",
     url: "fights/ajaxAddFight",
     //unfinished
-  })
+  });
+});
+
+//IN PROGRESS
+$('#confirmBetButton').on('click',function(){
+  $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val() + " CANCEL BUTTON" );
+  $.ajax({
+    data: data,
+    type: "POST",
+    url: "",
+    //unfinished
+  });
 });
