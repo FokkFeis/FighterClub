@@ -28,9 +28,12 @@
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Information Center</a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?php echo URL ; ?>fights/fighters">Fighters</a>
-                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/leaderboards">Leaderboards</a>
-                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/arena">Arena</a>
+                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/leaderboards">Fighter Leaderboards</a>
+                    <a class="dropdown-item" href="<?php echo URL ; ?>home/userStats">My stats</a>
                   </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URL ; ?>fights/arena">Arena</a>
                 </li>
             </ul>
         </div>

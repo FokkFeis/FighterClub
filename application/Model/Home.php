@@ -58,5 +58,17 @@ class Home extends Model
     $parameters = array(':name' => $name);
     $query->execute($parameters);
   }
+
+  public function getUserStats($username)
+  {
+    /* Needs data from database to finish
+    $sql = "CALL <something> do something";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':username' => $username);
+
+    $query->execute($parameters);
+    return $query->fetchAll();
+    */
+  }
 }
  ?>

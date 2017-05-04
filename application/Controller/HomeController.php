@@ -146,6 +146,20 @@ class HomeController
         header('Location: ' . URL . 'home/admin');
       }
     }
+
+    public function userStats()
+    {
+      if(isset($_SESSION['username'])){
+        $name = htmlspecialchars($_SESSION['username']);
+        $myUser = new Home();
+        $data = $myUser->getMyUser($name); #For sidebar
+        $userData = $myUser->getUserStats($name);
+      }
+
+      require APP . 'view/_templates/header.php';
+      require APP . 'view/home/userStats.php';
+      require APP . 'view/_templates/footer.php';
+    }
     /**
      * Page->Fighters
      * Lists fighters
