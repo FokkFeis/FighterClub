@@ -88,7 +88,7 @@ function fight() {
     getDiff(Number(fighter1_mmr),Number(fighter2_mmr));
     if (fighter1ID == fighter2ID){
       $('#fightBox').html()
-      $('#fightBox').html('Cannot be same fighter fighting');
+      $('#fightBox').html(String(selectedFighter1) + " Cannot fight himself/herself....");
     }
     else{
     function isWinner(fighter1,fighter2){

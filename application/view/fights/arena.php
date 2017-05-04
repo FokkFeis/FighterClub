@@ -25,8 +25,8 @@
     </div>
   </div>
 </div>
-
-<button class="btn btn-danger" id="fightButton" value="Fight!">Fight</button>
-<div class = "col-md-12" id="fightBox">
+<hr>
+<div class="container-fluid">
+  <button class="btn btn-danger" id="fightButton" value="Fight!">Fight</button>
 </div>
-</div>
+<div class = "col-md-12" id="fightBox"></div>
