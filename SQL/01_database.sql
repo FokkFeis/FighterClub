@@ -30,9 +30,9 @@ CREATE TABLE bets
   ID INT(11) NOT NULL AUTO_INCREMENT,
   amount INT(11),
   won char(1),
-  fighter_id INT(11),
+  fight_id INT(11),
   CONSTRAINT bets_id_pk PRIMARY KEY (ID),
-  CONSTRAINT bets_fighter_fk FOREIGN KEY (fighter_id) REFERENCES fighters(ID)
+  CONSTRAINT bets_fight_fk FOREIGN KEY (fight_id) REFERENCES fights(ID)
 );
 
 DROP TABLE IF EXISTS user_has_bets;
@@ -83,7 +83,6 @@ CREATE TABLE fights
 (
     ID INT(11) NOT NULL AUTO_INCREMENT,
     result CHAR(1),
-    status VARCHAR(255),
     startTime TIMESTAMP,
     CONSTRAINT fights_id_pk PRIMARY KEY (ID)
 );

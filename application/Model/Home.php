@@ -6,7 +6,7 @@ class Home extends Model
 {
   public function getMyUser($username)
   {
-    $sql = "SELECT * FROM showMyUser WHERE Username = :username";
+    $sql = "SELECT * FROM showAllUsers WHERE Username = :username";
     $query = $this->db->prepare($sql);
     $parameters = array(':username' => $username);
 
@@ -19,7 +19,7 @@ class Home extends Model
 
   public function showAllUsers()
   {
-    $sql = "SELECT * FROM showMyUser";
+    $sql = "SELECT * FROM showAllUsers";
     $query = $this->db->prepare($sql);
     $query->execute();
 
@@ -59,16 +59,25 @@ class Home extends Model
     $query->execute($parameters);
   }
 
-  public function getUserStats($username)
+  public function getUserStats($id)
   {
-    /* Needs data from database to finish
-    $sql = "CALL <something> do something";
+    # Needs data from database to finish
+    $sql = "SELECT * FROM showMyUser WHERE ID = :id";
     $query = $this->db->prepare($sql);
-    $parameters = array(':username' => $username);
+    $parameters = array(':id' => $id);
 
     $query->execute($parameters);
     return $query->fetchAll();
-    */
+
+  }
+
+  public function getAllBets()
+  {
+    $sql = "SELECT * FROM showMyUser";
+    $query = $this->db->prepare($sql);
+    $query->execute();
+
+    return $query->fetchAll();
   }
 }
  ?>

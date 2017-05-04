@@ -84,6 +84,8 @@ class HomeController
     public function allBets(){
       #$allBets = new Home();
       if($_SESSION['isAdmin'] === '1'){
+        $newHome = new Home();
+        $bets = $newHome->getAllBets();
         require APP . 'view/home/allBets.php';
       }
       else{

@@ -55,7 +55,16 @@ class Fights extends Model
   public function ajaxAddFight($f1,$f2,$result)
   {
       //todo
-      
+
+  }
+
+  public function bet($user_id,$fight_id,$bet_amount,$won_char,$coins_id)
+  {
+    $sql = "CALL addBet(:user_id,:fight_id,:bet_amount,:won_char,:coins_id)";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':user_id'=>$user_id,':fight_id'=>$fight_id,':bet_amount'=>$bet_amount,':won_char'=>$won_char,':coins_id'=>$coins_id);
+    $query->execute($parameters);
+
   }
 
 }
