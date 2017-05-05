@@ -26,7 +26,7 @@ class FightsController
       $data = $myUser->getMyUser($name);
     }
     $fighter = new Fights();
-    $allFighters = $fighter->getAllFighters();
+    $allFighters = $fighter->getTop10Fighters();
     require APP . 'view/_templates/header.php';
     require APP . 'view/fights/leaderboards.php';
     require APP . 'view/_templates/footer.php';
