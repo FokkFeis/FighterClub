@@ -1,4 +1,4 @@
-//WORK IN PROGRESS, Change from using league names in data-tags and filtering to using league ids
+//TOmaybeDO reverse the league id's in the database to have this looking nicer, Go from bronze=1 and up...
 
 var leagues = {5:"Bronze", 4:"Silver", 3:"Gold", 2:"Masters", 1:"Grandmaster"};
 var minLeague;
@@ -25,7 +25,6 @@ $(function() {
 function filterLeagues(minLeague, maxPrice) {
     $("#fighterCards div.card").hide().filter(function() {
         var league = $(this).data("tags");
-        console.log(league);
         return league >= minLeague && league <= maxLeague;
     }).show();
 }
