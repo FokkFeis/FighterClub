@@ -7,6 +7,15 @@ class Fights extends Model
 {
   public function getAllFighters()
   {
+    $sql = "SELECT * FROM Allfighters;";
+    $query = $this->db->prepare($sql);
+    $query->execute();
+
+    return $query->fetchAll();
+  }
+
+  public function getTop10Fighters()
+  {
     $sql = "SELECT * FROM Allfighters ORDER BY strength DESC LIMIT 10;";
     $query = $this->db->prepare($sql);
     $query->execute();
