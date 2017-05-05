@@ -6,9 +6,9 @@
   <div class="col-md-4" id="leagueSlider"></div>
 </div>
 <hr>
-<div class="card-columns">
-  <?php foreach($allFighters as $fighters) {?>
-    <div class="card" data-tags="<?php echo $fighters->League?>">
+<div class="card-columns" id="fighterCards">
+  <?php foreach($fightersWithLeagueID as $fighters) {?>
+    <div class="card" data-tags="<?php echo $fighters->LeagueID?>">
       <div class = "card-block">
         <h5 class="card-title"><?php echo $fighters->FighterName ?></h5>
         <ul class="list-group list-group-flush">

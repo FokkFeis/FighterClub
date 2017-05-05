@@ -41,6 +41,7 @@ class FightsController
     }
     $fighter = new Fights();
     $allFighters = $fighter->getAllFighters();
+    $fightersWithLeagueID = $fighter->getFighterAndLeagueID();
     require APP . 'view/_templates/header.php';
     require APP . 'view/fights/fighters.php';
     require APP . 'view/_templates/footer.php';

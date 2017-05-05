@@ -22,8 +22,16 @@ class Fights extends Model
 
     return $query->fetchAll();
   }
+  //such long function name much wow
+  public function getFighterAndLeagueID()
+  {
+    //such long sql query much wow
+    $sql = "SELECT Allfighters.*, leagues.ID AS LeagueID FROM Allfighters JOIN leagues ON Allfighters.League = leagues.name";
+    $query = $this->db->prepare($sql);
+    $query->execute();
+    return $query->fetchAll();
 
-  //work in progress
+  }
   public function getFighter($name)
   {
     $sql = "SELECT * FROM Allfighters WHERE FighterName = :name LIMIT 1";
