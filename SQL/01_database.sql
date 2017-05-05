@@ -17,11 +17,20 @@ CREATE TABLE users
 DROP TABLE IF EXISTS fighters;
 CREATE TABLE fighters
 (
-	ID INT(11) NOT NULL AUTO_INCREMENT,
+  ID INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255),
   strength INT(11) DEFAULT 500,
   wins INT(11) DEFAULT 0,
   CONSTRAINT fighter_id_pk PRIMARY KEY (ID)
+);
+
+DROP TABLE IF EXISTS fights;
+CREATE TABLE fights
+(
+    ID INT(11) NOT NULL AUTO_INCREMENT,
+    result CHAR(1),
+    startTime TIMESTAMP,
+    CONSTRAINT fights_id_pk PRIMARY KEY (ID)
 );
 
 DROP TABLE IF EXISTS bets;
@@ -76,15 +85,6 @@ CREATE TABLE user_has_coins
   coins_id INT(11),
   CONSTRAINT userHasCoins_user_fk FOREIGN KEY (user_id) REFERENCES users(ID),
   CONSTRAINT userHasCoins_coins_fk FOREIGN KEY (coins_id) REFERENCES coins(ID)
-);
-
-DROP TABLE IF EXISTS fights;
-CREATE TABLE fights
-(
-    ID INT(11) NOT NULL AUTO_INCREMENT,
-    result CHAR(1),
-    startTime TIMESTAMP,
-    CONSTRAINT fights_id_pk PRIMARY KEY (ID)
 );
 
 DROP TABLE IF EXISTS fight_has_fighters;
