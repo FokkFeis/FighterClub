@@ -18,5 +18,6 @@
     <script src="<?php echo URL; ?>js/application.js"></script>
     <script src="<?php echo URL; ?>js/admin_functions.js"></script>
     <script src="<?php echo URL; ?>js/fights.js"></script>
+    <script src="<?php echo URL; ?>js/fighterSlider.js"></script>
 </body>
 </html>
