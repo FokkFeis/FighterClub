@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row front-page">
+  <div class="row pull-down">
     <h1>Welcome to Fighter Club</h1>
     <p><strong>This website allows it's users to bet on fake fights with virtual currency.</strong> Once you've
-    <a href="#">signed up</a> you will be given 50 credits to bet in the arena. You will be able to choose what
+    <a href="<?php echo URL ; ?>signup/">signed up</a> you will be given 50 credits to bet in the arena. You will be able to choose what
     fighters you want to fight and which one you want to bet on. The fight is determined by 3 dice rolls and will factor in the fighters strength.
      So if you choose fighters with a high difference in strength the chances of the underdog winning are much lower.
       We factor that in to our algorithm so the payout will be higher if you bet on the underdog.
