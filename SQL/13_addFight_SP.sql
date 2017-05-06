@@ -14,11 +14,11 @@ BEGIN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = msg;
     END IF;
     IF(fighter1_ID != fighter2_ID)THEN
-	
+
 		START TRANSACTION;
 		INSERT INTO fights(result,startTime)
 		VALUES(new_result,current_timestamp());
-			
+
 		SET fight_id = last_insert_id();
 		CALL addFighterToAFight(fighter1_ID,fighter2_ID,fight_id);
 		COMMIT;

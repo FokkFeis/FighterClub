@@ -38,3 +38,4 @@
 </div>
 <hr>
 <div class = "col-md-12" id="fightBox"></div>
+<div class = "col-md-12" id="resultBox"></div>

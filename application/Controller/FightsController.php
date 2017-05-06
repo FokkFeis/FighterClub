@@ -93,9 +93,14 @@ class FightsController
 
   public function ajaxAddFight()
   {
-    if(isset($_POST['fightData']))
+    if(isset($_POST['fightResult']))
     {
-
+      $fights = new Fights();
+      $fights->ajaxAddFight($_GET['fighter1ID'],$_GET['fighter2ID'], $_GET['fightResult']);
+      $lastfightID = $fights->getLastFightID();
+      if(isset($_POST['user_betOn'])){
+        $fights->ajaxAddBet($_SESSION['userID'],$latFightId,$_GET['user_bet'],$_GET['user_betOn'],$_SESSION['CoinID']);
+      }
     }
   }
 }
