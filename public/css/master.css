@@ -26,7 +26,17 @@ h1 {
   padding-bottom: 9px;
   border-bottom: 1px solid #eee;
 }
+.display-1{
+  border-bottom: 0px;
+}
 
+.front-page{
+  margin-top: 50px;
+}
+.middle-align{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 /*
  * Sidebar
  */
