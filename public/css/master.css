@@ -89,6 +89,14 @@ h1 {
   padding-bottom: 1.5rem;
 }
 
+#head,
+#para,
+#sec2,
+#sec3,
+#sec4{
+ display:none;
+}
+
 /* Bootstrap class that is missing in v4*/
 .btn-group-justified {
   display: table;

@@ -19,5 +19,6 @@
     <script src="<?php echo URL; ?>js/admin_functions.js"></script>
     <script src="<?php echo URL; ?>js/fights.js"></script>
     <script src="<?php echo URL; ?>js/fighterSlider.js"></script>
+    <script src="<?php echo URL; ?>js/animations.js"></script>
 </body>
 </html>
