@@ -34,6 +34,7 @@ class LoginController
         $_SESSION['username'] = $result[0]['name'];
         $_SESSION['isAdmin'] = $result[0]['isAdmin'];
         $_SESSION['ID'] = $result[0]['id'];
+        $_SEESION['CoinID'] = $result[0]['CoinID'];
         header('location: ' . URL . 'home/account');
       }
       else{
