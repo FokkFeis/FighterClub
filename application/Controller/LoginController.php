@@ -33,10 +33,11 @@ class LoginController
         $_SESSION['email'] = $result[0]['email'];
         $_SESSION['username'] = $result[0]['name'];
         $_SESSION['isAdmin'] = $result[0]['isAdmin'];
-        $_SESSION['ID'] = $result[0]['id'];
-        $_SEESION['CoinID'] = $result[0]['coins_id'];
+        $_SESSION['ID'] = (int)$result[0]['id'];
+        $_SESSION['CoinID'] = (int)$result[0]['coins_id'];
         header('location: ' . URL . 'home/account');
       }
+
       else{
         header('location: ' . URL . 'login/');
       }

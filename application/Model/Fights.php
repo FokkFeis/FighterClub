@@ -80,7 +80,7 @@ class Fights extends Model
   {
     $sql = "select ID from fights order by ID desc LIMIT 1";
     $query = $this->db->prepare($sql);
-    $query->execute($parameters);
+    $query->execute();
     return $query->fetch();
   }
 
@@ -91,6 +91,21 @@ class Fights extends Model
     $parameters = array(':user_id'=>$user_id,':fight_id'=>$fight_id,':bet_amount'=>$bet_amount,':won_char'=>$won_char,':coins_id'=>$coins_id);
     $query->execute($parameters);
 
+  }
+  public function updateStrength($mmr, $fighterid)
+  {
+    $sql ="CALL updateStrength(:strength,:fighterID)";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':strength'=>$mmr, ':fighterID'=>$fighterid);
+    $query->execute($parameters);
+  }
+
+  public function updateWins($fighterID)
+  {
+    $sql = "CALL updateWins(:fighterID)";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':fighterID'=>$fighterID);
+    $query->execute($parameters);
   }
 
 }

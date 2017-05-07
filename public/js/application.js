@@ -10,6 +10,12 @@ var user_bet, user_betOn,user_won;
 var fighter1wins = 0;
 var fighter2wins = 0;
 var fightResult;
+var mydata;
+var mmrDiffNumber;
+var new_fighter1_mmr,new_fighter2_mmr;
+var fightWinner;
+
+
 
 var getFighterInfo = function(fighterName,selector) {
 $.ajax({
@@ -129,6 +135,7 @@ function fight() {
         setTimeout( fight, 2500 );
     }
     if(round == 3){
+      //mmrDiffNumber = 25 / diff;
       if(Number(fighter1wins) > Number(fighter2wins)){
         $('#resultBox').html('<br>' + selectedFighter1 + ' Is the winner');
         fightResult= "1";
@@ -138,9 +145,14 @@ function fight() {
         if(user_betOn == "2"){
           user_won = "0";
         }
+        new_fighter1_mmr = Number(Number(fighter1_mmr) + Number(25/diff));
+        new_fighter2_mmr = Number(Number(fighter2_mmr) - Number(25/diff));
+        fightWinner = Number(fighter1ID);
       }
       if(Number(fighter1wins) == Number(fighter2wins)){
         $("#resultBox").html('<br> The result is a tie');
+        new_fighter1_mmr = fighter1_mmr;
+        new_fighter2_mmr = fighter2_mmr;
       }
       if(Number(fighter1wins) < Number(fighter2wins)){
         $('#resultBox').html('<br>' + selectedFighter2 + ' Is the winner');
@@ -151,19 +163,33 @@ function fight() {
         if(user_betOn == "1"){
           user_won = "0";
         }
+        new_fighter1_mmr = Number(Number(fighter1_mmr) - Number(25/diff));
+        new_fighter2_mmr = Number(Number(fighter2_mmr) + Number(25/diff));
+        fightWinner = Number(fighter2ID);
       }
-      addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won);
+
+      addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won,new_fighter1_mmr, new_fighter2_mmr, fightWinner);
     }
 }
 }
 
-function addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won){
+function addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won,new_fighter1_mmr,new_fighter2_mmr,fightWinner){
   $.ajax({
     type: "POST",
     url: "results",
     dataType: 'json',
-    data: {fighterResult: fightResult, fighter1ID: fighter1ID, fighter2ID: fighter2ID,user_betOn: user_betOn,user_bet: user_bet,user_won: user_won},
-    'success': function(data){
+    data: {
+      fighterResult: fightResult,
+      fighter1ID: fighter1ID,
+      fighter2ID: fighter2ID,
+      user_betOn: user_betOn,
+      user_bet: user_bet,
+      user_won: user_won,
+      new_fighter1_mmr: new_fighter1_mmr,
+      new_fighter2_mmr: new_fighter2_mmr,
+      fightWinner: fightWinner
+    },
+    success: function(data){
 
     }
   });
