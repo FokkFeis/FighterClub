@@ -50,6 +50,7 @@
                     <?php if(isset($_SESSION['username'])){
                         foreach ($data as $key) { ?>
                           <li class="list-group-item"><?php echo $key->Username ?></li>
+                          <input type="hidden" id="CoinsList" value="<?php echo ((int)($key->Coins)); ?>">
                           <li class="list-group-item">Coins: <?php echo $key->Coins ?></li>
                           <li class="list-group-item"></li>
                         <?php }?>

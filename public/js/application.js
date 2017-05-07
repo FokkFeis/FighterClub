@@ -14,8 +14,11 @@ var mydata;
 var mmrDiffNumber;
 var new_fighter1_mmr,new_fighter2_mmr;
 var fightWinner;
+var userCoins = Number($("#CoinsList").val());
+var fightButton = $("#fightButton");
 
 
+fightButton.hide();
 
 var getFighterInfo = function(fighterName,selector) {
 $.ajax({
@@ -30,6 +33,13 @@ $.ajax({
     }
 });
 };
+var getUserInfo = function(userID, selector){
+  $.ajax({
+    url: url + "fights/getUserInfo",
+    type: 'GET',
+    data: {}
+  })
+}
 
 $("select")
   .change(function() {
@@ -209,13 +219,20 @@ $('#fightButton').on('click',function(){
 
 //IN PROGRESS
 $('#confirmBetButton').on('click',function(){
-  $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val() + " CANCEL BUTTON" );
-  user_bet = Number($("#amountToBet").val()); //Get amount betted
-  if($("#selBetFighter option:selected").text() == selectedFighter1){
-    user_betOn = '1'; //Bets on fighter 1
+  if($('#amountToBet').val() > userCoins){
+    $('#currentBets').html("You don't have enough coins");
   }
   else{
-    user_betOn = '2' //Bets on fighter 2
+    fightButton.show();
+    $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val() + " CANCEL BUTTON" );
+    user_bet = Number($("#amountToBet").val()); //Get amount betted
+    if($("#selBetFighter option:selected").text() == selectedFighter1){
+      user_betOn = '1'; //Bets on fighter 1
+    }
+    else{
+      user_betOn = '2' //Bets on fighter 2
+    }
   }
+
 
 });
