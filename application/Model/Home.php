@@ -62,10 +62,9 @@ class Home extends Model
   public function getUserStats($id)
   {
     # Needs data from database to finish
-    $sql = "SELECT * FROM showMyUser WHERE ID = :id";
+    $sql = "CALL showBets(:id)";
     $query = $this->db->prepare($sql);
     $parameters = array(':id' => $id);
-
     $query->execute($parameters);
     return $query->fetchAll();
 

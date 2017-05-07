@@ -153,9 +153,10 @@ class HomeController
     {
       if(isset($_SESSION['username'])){
         $name = htmlspecialchars($_SESSION['username']);
+        $ID = htmlspecialchars($_SESSION['ID']);
         $myUser = new Home();
         $data = $myUser->getMyUser($name); #For sidebar
-        $userData = $myUser->getUserStats($name);
+        $getUserStats = $myUser->getUserStats($ID);
       }
 
       require APP . 'view/_templates/header.php';

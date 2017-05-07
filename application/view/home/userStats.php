@@ -1,27 +1,19 @@
-<?php
-  #Uncomment the php code below when sql data is ready.
- ?>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Fighter 1</th>
-      <th>Fighter 2</th>
-      <th>Winner</th>
-      <th>Coins won/lost</th>
+      <th>Amount</th>
+      <th>Win</th>
     </tr>
   </thead>
   <tbody>
-    <?php  /*  ?>
+    <?php    ?>
 
-    <?php foreach ($userData as $data){ ?>
+    <?php foreach ($getUserStats as $stats){ ?>
       <tr>
-        <td><?php echo $userData->fightId; ?></td>
-        <td><?php echo $userData->fighter1; ?></td>
-        <td><?php echo $userData->fighter2; ?></td>
-        <td><?php echo $userData->Winner; ?></td>
-        <td><?php echo $userData->coins; ?></td>
+        <td><?php echo $stats->Amount; ?></td>
+        <td><?php echo $stats->Won; ?></td>
       </tr>
-    <?php } */?>
+    <?php } ?>
   </tbody>
 </table>

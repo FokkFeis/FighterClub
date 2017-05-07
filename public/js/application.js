@@ -16,6 +16,7 @@ var new_fighter1_mmr,new_fighter2_mmr;
 var fightWinner;
 var userCoins = Number($("#CoinsList").val());
 var fightButton = $("#fightButton");
+var finalBetAmount;
 
 fightButton.hide();
 
@@ -152,9 +153,11 @@ function fight() {
         fightResult= "1";
         if(user_betOn == "1"){
           user_won = "1";
+          finalBetAmount = Number(Number(user_bet) / Number(diff));
         }
         if(user_betOn == "2"){
           user_won = "0";
+          finalBetAmount = user_bet;
         }
         new_fighter1_mmr = Number(Number(fighter1_mmr) + Number(25/diff));
         new_fighter2_mmr = Number(Number(fighter2_mmr) - Number(25/diff));
@@ -170,16 +173,18 @@ function fight() {
         fightResult = "2";
         if(user_betOn == "2"){
           user_won = "1";
+          finalBetAmount = Number(Number(user_bet) / Number(diff));
         }
         if(user_betOn == "1"){
           user_won = "0";
+          finalBetAmount = user_bet;
         }
         new_fighter1_mmr = Number(Number(fighter1_mmr) - Number(25/diff));
         new_fighter2_mmr = Number(Number(fighter2_mmr) + Number(25/diff));
         fightWinner = Number(fighter2ID);
       }
 
-      addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won,new_fighter1_mmr, new_fighter2_mmr, fightWinner);
+      addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,finalBetAmount,user_won,new_fighter1_mmr, new_fighter2_mmr, fightWinner);
     }
 }
 }
@@ -214,7 +219,7 @@ $('#fightButton').on('click',function(){
   user_won = 0;
   $('#resultBox').html("");
   fight();
-
+  setTimeout(location.reload.bind(location), 8000);
 
 });
 
@@ -224,9 +229,8 @@ $('#confirmBetButton').on('click',function(){
     $('#currentBets').html("You don't have enough coins");
   }
   else{
-    if()
     fightButton.show();
-    $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val() + " CANCEL BUTTON" );
+    $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val()  + " CANCEL BUTTON" );
     user_bet = Number($("#amountToBet").val()); //Get amount betted
     if($("#selBetFighter option:selected").text() == selectedFighter1){
       user_betOn = '1'; //Bets on fighter 1

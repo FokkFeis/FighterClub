@@ -6,7 +6,7 @@
       <th>Username</th>
       <th>Email</th>
       <th>Amount</th>
-      <th>Amount</th>
+      <th>Result</th>
       <?php foreach ($bets as $bet){            ?>
       <?php echo "<tr>";                                    ?>
       <?php echo "<td>" . $bet->ID . "</td>"; ?>
