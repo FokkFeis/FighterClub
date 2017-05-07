@@ -8,13 +8,13 @@
       We factor that in to our algorithm so the payout will be higher if you bet on the underdog.
        Once the fight is over your balance will change depending if you win or loose.</p>
     <div class="col-md-5" id="sec2">
-      <h3 class="middle-align">Leagues and minimum bets</h3>
+      <h3 class="middle-align">Leagues</h3>
       <ul class="">
-        <li><strong>Bronze</strong> Minimum bet 1 Maximum 25</li>
-        <li><strong>Silver</strong> Minimum bet 25 maximum 50</li>
-        <li><strong>Gold</strong> Minimum bet 50 maximum 100</li>
-        <li><strong>Masters</strong> Minimum bet 100 no maximum</li>
-        <li><strong>Grand Master</strong> Minimum bet 500 / ALL IN</li>
+        <li><strong>Bronze</strong> 0-999 strength</li>
+        <li><strong>Silver</strong> 1000-1999 strength</li>
+        <li><strong>Gold</strong> 2000-2999 strength</li>
+        <li><strong>Masters</strong> 3000+ strength</li>
+        <li><strong>Grand Master</strong>The highest strength fighter</li>
       </ul>
     </div>
     <div class="col-md-5" id="sec3">

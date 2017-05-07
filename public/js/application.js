@@ -17,7 +17,6 @@ var fightWinner;
 var userCoins = Number($("#CoinsList").val());
 var fightButton = $("#fightButton");
 
-
 fightButton.hide();
 
 var getFighterInfo = function(fighterName,selector) {
@@ -70,6 +69,7 @@ var showFighterInfo = function(jsonData,selector){
     fighter1_mmr = tempMMR;
     selectedFighter1 = fighterObj.FighterName;
     fighter1ID = fighterObj.ID;
+    fighter1_league = fighterObj.League;
   }else {
     $("#fighter2").html(`
       <li class="list-group-item">Strength: ${fighterObj.strength}</li>
@@ -81,6 +81,7 @@ var showFighterInfo = function(jsonData,selector){
     selectedFighter2 = fighterObj.FighterName;
     fighter2_mmr = tempMMR;
     fighter2ID = fighterObj.ID;
+    fighter2_league = fighterObj.League;
   }
 
 };
@@ -223,6 +224,7 @@ $('#confirmBetButton').on('click',function(){
     $('#currentBets').html("You don't have enough coins");
   }
   else{
+    if()
     fightButton.show();
     $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val() + " CANCEL BUTTON" );
     user_bet = Number($("#amountToBet").val()); //Get amount betted
