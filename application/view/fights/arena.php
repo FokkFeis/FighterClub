@@ -1,3 +1,5 @@
+
+
 <div class="card-deck">
   <div class="card">
     <div class = "card-block">
@@ -34,7 +36,7 @@
   </div>
   <div class="container-fluid" id="currentBets">
   </div>
-  <button class="btn btn-outline-danger btn-lg" id="fightButton" value="Fight!">Fight</button>
+    <button class="btn btn-outline-danger btn-lg" id="fightButton" value="Fight!">Fight</button>
 </div>
 <hr>
 <div class = "col-md-12" id="fightBox"></div>

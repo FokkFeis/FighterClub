@@ -129,7 +129,7 @@ function fight() {
         setTimeout( fight, 2500 );
     }
     if(round == 3){
-      if(fighter1wins > fighter2wins){
+      if(Number(fighter1wins) > Number(fighter2wins)){
         $('#resultBox').html('<br>' + selectedFighter1 + ' Is the winner');
         fightResult= "1";
         if(user_betOn == "1"){
@@ -139,10 +139,10 @@ function fight() {
           user_won = "0";
         }
       }
-      if(fighter1wins == fighter2wins){
+      if(Number(fighter1wins) == Number(fighter2wins)){
         $("#resultBox").html('<br> The result is a tie');
       }
-      else{
+      if(Number(fighter1wins) < Number(fighter2wins)){
         $('#resultBox').html('<br>' + selectedFighter2 + ' Is the winner');
         fightResult = "2";
         if(user_betOn == "2"){
@@ -152,14 +152,15 @@ function fight() {
           user_won = "0";
         }
       }
+      addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won);
     }
 }
 }
 
 function addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won){
   $.ajax({
-    type: "GET",
-    url: "fights/ajaxAddFight",
+    type: "POST",
+    url: "results",
     dataType: 'json',
     data: {fighterResult: fightResult, fighter1ID: fighter1ID, fighter2ID: fighter2ID,user_betOn: user_betOn,user_bet: user_bet,user_won: user_won},
     'success': function(data){
@@ -176,7 +177,8 @@ $('#fightButton').on('click',function(){
   user_won = 0;
   $('#resultBox').html("");
   fight();
-  addBetAndFight(fightResult, fighter1ID, fighter2ID, user_betOn,user_bet,user_won)
+
+
 });
 
 //IN PROGRESS

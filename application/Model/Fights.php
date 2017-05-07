@@ -71,8 +71,17 @@ class Fights extends Model
 
   public function ajaxAddFight($f1,$f2,$result)
   {
-      //todo
-
+    $sql = "CALL addFight(:fighter1,:fighter2,:result)";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':fighter1'=>$f1,':fighter2'=>$f2,':result'=>$result);
+    $query->execute($parameters);
+  }
+  public function getLastFightID()
+  {
+    $sql = "select ID from fights order by ID desc LIMIT 1";
+    $query = $this->db->prepare($sql);
+    $query->execute($parameters);
+    return $query->fetch();
   }
 
   public function bet($user_id,$fight_id,$bet_amount,$won_char,$coins_id)

@@ -49,6 +49,11 @@ class FightsController
 
   public function arena()
   {
+    if(isset($_POST['fighterResult'])){
+      require APP . '/view/fights/results.php';
+    }
+
+
     $fighter = new Fights();
     $allFighters = $fighter->getAllFighters();
     if(isset($_SESSION['username'])){
@@ -91,17 +96,23 @@ class FightsController
     }
   }
 
-  public function ajaxAddFight()
+  public function results()
   {
-    if(isset($_POST['fightResult']))
-    {
+    $fighter1ID = htmlspecialchars($_POST['fighter1ID']);
+    $fighter2ID = htmlspecialchars($_POST['fighter2ID']);
+    $fighterResult = htmlspecialchars($_POST['fighterResult']);
+    $user_betOn = htmlspecialchars($_POST['user_betOn']);
+    $user_bet = htmlspecialchars($_POST['user_bet']);
+    $user_won = htmlspecialchars($_POST['user_won']);
+    $user_id = htmlspecialchars($_SESSION['ID']);
+
       $fights = new Fights();
-      $fights->ajaxAddFight($_GET['fighter1ID'],$_GET['fighter2ID'], $_GET['fightResult']);
+      $fights->ajaxAddFight($fighter1ID,$fighter2ID,$fighterResult);
       $lastfightID = $fights->getLastFightID();
-      if(isset($_POST['user_betOn'])){
-        $fights->ajaxAddBet($_SESSION['userID'],$latFightId,$_GET['user_bet'],$_GET['user_betOn'],$_SESSION['CoinID']);
-      }
-    }
+      $fights->bet((int)$_SESSION['ID'], (int)$lastfightID->ID, (int)$user_bet, (int)$user_won, (int)$_SESSION['CoinID']);
+    var_dump($user_won);
+    print_r((int)$lastfightID->ID);
+    echo $lastfightID[0];
   }
 }
 
