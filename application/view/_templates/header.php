@@ -43,7 +43,7 @@
           <div class="row">
             <div class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
               <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="User image">
+                <!--<img class="card-img-top" src="http://placehold.it/350x150" alt="User image">-->
                 <div class="card-block">
                   <h4 class="card-title">Account overview</h4>
                   <ul class="list-group list-group-flush">
