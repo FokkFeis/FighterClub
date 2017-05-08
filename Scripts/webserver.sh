@@ -1,5 +1,5 @@
-!#/bin/sh
-PASSWORD = '12345678'
+#!/usr/bin/env bash
+PASSWORD='12345678'
 PROJECTFOLDER='fighterClub'
 
 sudo apt-get update
@@ -8,29 +8,23 @@ sudo apt-get -y upgrade
 sudo apt-get install -y apache2
 sudo apt-get install -y php5
 
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo apt-get -y install mysql-server
 sudo apt-get install php5-mysql
 
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PASSWORD"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $PASSWORD"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PASSWORD"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
 sudo apt-get -y install phpmyadmin
+
 
 sudo mkdir "/var/www"
 sudo mkdir "/var/www/html"
-sudo mkdir "/var/www/html/$(PROJECTFOLDER)"
+sudo mkdir "/var/www/html/${PROJECTFOLDER}"
 
-VHOST =$(cat <<EOF
+VHOST=$(cat <<EOF
 <VirtualHost *:80>
-  DocumentRoot "/var/www/html/$(PROJECTFOLDER)/public"
-  <Directory "/var/www/html/$(PROJECTFOLDER)/public">
-    AllowOverride AllowOverride
-    Require all granted
-  </Directory>
+    DocumentRoot "/var/www/html/${PROJECTFOLDER}/public"
+        <Directory "/var/www/html/${PROJECTFOLDER}/public">
+                AllowOverride All
+                Require all granted
+        </Directory>
 </VirtualHost>
 EOF
 )
@@ -46,11 +40,10 @@ sudo apt-get -y install git
 sudo git clone https://github.com/FokkFeis/Lokaverkefni_V17 "/var/www/html/${PROJECTFOLDER}"
 
 curl -s https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+sudo mv composer.phar /usr/local/bin/composer
 
 cd "/var/www/html/${PROJECTFOLDER}"
-composer install
-
+sudo composer install
 
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/01_database.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/02-addUser_SP.sql"

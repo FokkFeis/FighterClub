@@ -1,3 +1,4 @@
+USE fightersClub;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS updateWins $$
 

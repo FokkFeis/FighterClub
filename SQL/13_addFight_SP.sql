@@ -1,3 +1,4 @@
+USE fightersClub;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS addFight $$
 CREATE PROCEDURE addFight

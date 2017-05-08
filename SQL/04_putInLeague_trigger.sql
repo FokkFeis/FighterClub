@@ -4,7 +4,7 @@
 
 
 
-
+USE fightersClub;
 DROP TRIGGER IF EXISTS putInLeague;
 
 DELIMITER $$

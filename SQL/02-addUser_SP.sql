@@ -1,6 +1,7 @@
+USE fightersClub;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS addUser $$
-CREATE PROCEDURE addUser 
+CREATE PROCEDURE addUser
 (
 	user_name VARCHAR(255),
     user_email VARCHAR(255),

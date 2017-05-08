@@ -1,6 +1,7 @@
+USE fightersClub;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS updateUsername $$
-CREATE PROCEDURE updateUsername 
+CREATE PROCEDURE updateUsername
 (
 	ID INT(11),
     new_username VARCHAR(255)

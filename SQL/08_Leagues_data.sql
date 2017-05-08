@@ -1,3 +1,4 @@
+USE fightersClub;
 INSERT INTO leagues(name)
 VALUES	('Grandmaster'),
 		('Masters'),
