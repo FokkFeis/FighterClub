@@ -181,7 +181,7 @@ function fight() {
                 if (user_betOn == "2") {
                     user_won = "0";
                     finalBetAmount = user_bet;
-                    $('#resultBox').append('To bad! you lost: ' + finalBetAmount.toFixed(0));
+                    $('#resultBox').append('Too bad! you lost: ' + finalBetAmount.toFixed(0));
                 }
                 if (diff == 0) {
                     new_fighter1_mmr = Number(Number(fighter1_mmr) + Number(25));
@@ -209,7 +209,7 @@ function fight() {
                 if (user_betOn == "1") {
                     user_won = "0";
                     finalBetAmount = user_bet;
-                    $('#resultBox').append('To bad! you lost: ' + finalBetAmount.toFixed(0));
+                    $('#resultBox').append('Too bad! you lost: ' + finalBetAmount.toFixed(0));
 
                 }
                 if (diff == 0) {
