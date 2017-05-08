@@ -34,7 +34,7 @@ sudo a2enmod rewrite
 
 service apache2 restart
 
-sudo rm "/var/www/html/index.html"
+sudo rm "/var/www/index.html"
 
 sudo apt-get -y install git
 sudo git clone https://github.com/FokkFeis/Lokaverkefni_V17 "/var/www/html/${PROJECTFOLDER}"
@@ -43,7 +43,7 @@ curl -s https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 cd "/var/www/html/${PROJECTFOLDER}"
-sudo composer install
+composer install
 
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/01_database.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/02-addUser_SP.sql"
@@ -64,6 +64,6 @@ sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFO
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/17_updateWins_SP.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/18_showBets_SP.sql"
 
-sudo sed -i "s/12345678/${PASSWORD}/" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
+sudo sed -i "s/12345678/${PASSWORD}/" "/var/www/html/${PROJECTFOLDER}/application/Config/config.php"
 
 echo "Done!"
