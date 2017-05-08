@@ -28,5 +28,6 @@ BEGIN
     IF(won_char = 0) THEN
 		UPDATE coins set coins.coins = coins.coins - bet_amount WHERE coins.ID = coins_id;
 	END IF ;
+  COMMIT;
 END $$
 DELIMITER ;

@@ -1,4 +1,76 @@
 !#/bin/sh
-apt-get update
-apt-get install apache2 -y mysql-server -y php5 php-pear php5-mysql -y phpmyadmin -y libapache2-mod-php5 -y | ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
-a2enconf phpmyadmin.conf | systemctl restart apache2.service 
+PASSWORD = '12345678'
+PROJECTFOLDER='fighterClub'
+
+sudo apt-get update
+sudo apt-get -y upgrade
+
+sudo apt-get install -y apache2
+sudo apt-get install -y php5
+
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
+sudo apt-get -y install mysql-server
+sudo apt-get install php5-mysql
+
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PASSWORD"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $PASSWORD"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PASSWORD"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
+sudo apt-get -y install phpmyadmin
+
+sudo mkdir "/var/www"
+sudo mkdir "/var/www/html"
+sudo mkdir "/var/www/html/$(PROJECTFOLDER)"
+
+VHOST =$(cat <<EOF
+<VirtualHost *:80>
+  DocumentRoot "/var/www/html/$(PROJECTFOLDER)/public"
+  <Directory "/var/www/html/$(PROJECTFOLDER)/public">
+    AllowOverride AllowOverride
+    Require all granted
+  </Directory>
+</VirtualHost>
+EOF
+)
+echo "${VHOST}" > /etc/apache2/sites-available/000-default.conf
+
+sudo a2enmod rewrite
+
+service apache2 restart
+
+sudo rm "/var/www/html/index.html"
+
+sudo apt-get -y install git
+sudo git clone https://github.com/FokkFeis/Lokaverkefni_V17 "/var/www/html/${PROJECTFOLDER}"
+
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+cd "/var/www/html/${PROJECTFOLDER}"
+composer install
+
+
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/01_database.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/02-addUser_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/03_addFighter_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/04_putInLeague_trigger.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/05_Allfighters_VIEW.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/06_showMyUser_View.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/07_updateStrength_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/08_Leagues_data.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/09_fighters_data.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/10_updateUsername.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/11_updateEmail.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/12_updatePassword.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/13_addFight_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/14_addFighterToAFight_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/15_addBet_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/16_showAllUsers_VIEW.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/17_updateWins_SP.sql"
+sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/18_showBets_SP.sql"
+
+sudo sed -i "s/12345678/${PASSWORD}" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
+
+echo "Done!"
