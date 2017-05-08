@@ -25,8 +25,6 @@ BEGIN
 	END IF;
     IF(NEW.strength >3000 OR NEW.strength = 3000) THEN
       UPDATE fighter_has_leagues SET league_id = 2 WHERE fighter_id = new.ID;
-
 	END IF;
-
 END $$
 DELIMITER ;
