@@ -1,4 +1,4 @@
-USE fightersClub;
+USE fightersclub;
 DROP VIEW IF EXISTS showmyuser;
 CREATE VIEW showMyUser as SELECT bets.id as ID, users.name as Username, users.email as Email, coins.coins as Coins, users.isAdmin as AdminStatus, bets.amount as Amount, bets.won as Won, coins.ID as CoinID
 FROM fights

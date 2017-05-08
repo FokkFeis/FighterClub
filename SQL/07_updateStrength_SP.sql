@@ -3,7 +3,7 @@
 # Objective: Update MMR / Strength of a fighter
 # Varibles: takes in New MMR / Strength and the fighter ID
 
-USE fightersClub;
+USE fightersclub;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS updateStrength $$
 

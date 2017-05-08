@@ -1,4 +1,4 @@
-USE fightersClub;
+USE fightersclub;
 CALL addFighter('Mordeka');
 CALL addFighter('SteelRock');
 CALL addFighter('Magni');

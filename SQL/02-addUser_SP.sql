@@ -1,4 +1,4 @@
-USE fightersClub;
+USE fightersclub;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS addUser $$
 CREATE PROCEDURE addUser
