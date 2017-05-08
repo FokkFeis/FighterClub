@@ -170,15 +170,18 @@ function fight() {
         if (round == 3) {
             //mmrDiffNumber = 25 / diff;
             if (Number(fighter1wins) > Number(fighter2wins)) {
-                $('#resultBox').html('<br>' + selectedFighter1 + ' Is the winner');
+                $('#resultBox').html('<br> <h1 class="text-success"> The Winner is: ' + selectedFighter1 + '!</h1>');
                 fightResult = "1";
                 if (user_betOn == "1") {
                     user_won = "1";
                     finalBetAmount = Number(Number(user_bet) / Number(diff));
+                    $('#resultBox').append('Congratulations you won: ' + finalBetAmount.toFixed(0));
+
                 }
                 if (user_betOn == "2") {
                     user_won = "0";
                     finalBetAmount = user_bet;
+                    $('#resultBox').append('To bad! you lost: ' + finalBetAmount.toFixed(0));
                 }
                 if (diff == 0) {
                     new_fighter1_mmr = Number(Number(fighter1_mmr) + Number(25));
@@ -190,20 +193,24 @@ function fight() {
                 fightWinner = Number(fighter1ID);
             }
             if (Number(fighter1wins) == Number(fighter2wins)) {
-                $("#resultBox").html('<br> The result is a tie');
+              $('#resultBox').html('<br> <h1 class="text-success"> It\'s a tie!');
                 new_fighter1_mmr = fighter1_mmr;
                 new_fighter2_mmr = fighter2_mmr;
             }
             if (Number(fighter1wins) < Number(fighter2wins)) {
-                $('#resultBox').html('<br>' + selectedFighter2 + ' Is the winner');
+              $('#resultBox').html('<br> <h1 class="text-success"> The Winner is: ' + selectedFighter2 + '!');
                 fightResult = "2";
                 if (user_betOn == "2") {
                     user_won = "1";
                     finalBetAmount = Number(Number(user_bet) / Number(diff));
+                    $('#resultBox').append('Congratulations you won: ' + finalBetAmount.toFixed(0));
+
                 }
                 if (user_betOn == "1") {
                     user_won = "0";
                     finalBetAmount = user_bet;
+                    $('#resultBox').append('To bad! you lost: ' + finalBetAmount.toFixed(0));
+
                 }
                 if (diff == 0) {
 
@@ -262,12 +269,7 @@ $('#confirmBetButton').on('click', function() {
         $('#currentBets').html("You don't have enough coins");
     } else {
         fightButton.show();
-        $('#currentBets').html(`
-          <p class="lead">Betting on ${$("#selBetFighter option:selected").text()} Amount: ${$("#amountToBet").val()}
-          <button type="button" class="close" aria-label="Close" onclick="$('#currentBets').html('')">
-           <span aria-hidden="true">×</span>
-          </button>
-        </p>`);
+        $('#currentBets').html(`Betting ${$("#amountToBet").val()} on ${$("#selBetFighter option:selected").text()}`);
         user_bet = Number($("#amountToBet").val()); //Get amount betted
         if ($("#selBetFighter option:selected").text() == selectedFighter1) {
             user_betOn = '1'; //Bets on fighter 1
