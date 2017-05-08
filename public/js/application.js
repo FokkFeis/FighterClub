@@ -141,7 +141,27 @@ function fight() {
         }
         isWinner(fighter1_roll, fighter2_roll);
         $('#fightBox').html();
-        $('#fightBox').html(selectedFighter1 + " Rolls " + fighter1_roll + "<br>" + selectedFighter2 + " Rolls " + fighter2_roll + "<br>round: " + (round + 1) + "<br>Fight Score: " + roundWinner + "<br> Round Winner: " + roundWinner[round]);
+        $('#fightBox').html(`
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">${selectedFighter1}</h4>
+              <p class="card-text">Rolls ${fighter1_roll.toFixed(2)}</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Round: ${(round + 1)}</h4>
+              <p class="card-text">
+                Fight Score: ${roundWinner}<br>
+            Round Winner: ${roundWinner[round]}</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">${selectedFighter2}</h4>
+              <p class="card-text">Rolls ${fighter2_roll.toFixed(2)}</p>
+            </div>
+          </div>`);
 
         round++;
         if (round < howManyTimes) {
@@ -242,7 +262,12 @@ $('#confirmBetButton').on('click', function() {
         $('#currentBets').html("You don't have enough coins");
     } else {
         fightButton.show();
-        $('#currentBets').html("Betting on " + $("#selBetFighter option:selected").text() + " Amount: " + $("#amountToBet").val() + " CANCEL BUTTON");
+        $('#currentBets').html(`
+          <p class="lead">Betting on ${$("#selBetFighter option:selected").text()} Amount: ${$("#amountToBet").val()}
+          <button type="button" class="close" aria-label="Close" onclick="$('#currentBets').html('')">
+           <span aria-hidden="true">×</span>
+          </button>
+        </p>`);
         user_bet = Number($("#amountToBet").val()); //Get amount betted
         if ($("#selBetFighter option:selected").text() == selectedFighter1) {
             user_betOn = '1'; //Bets on fighter 1

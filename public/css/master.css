@@ -1,13 +1,4 @@
-.fighter{
-  background: rgba(150 , 100, 256, 0.2);
-  margin-top: 20px;
-  border: 1px solid;
-  width: 150;
-  height: 150;
-}
-.arenaFighter{
-  width: 150px; height: 150px; padding: 0.5em;margin-top:20px; border: 1px solid;
-}
+
 /*
  * Base structure
  */

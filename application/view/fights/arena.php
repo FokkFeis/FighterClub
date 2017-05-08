@@ -34,10 +34,21 @@
     <input type="text" name="amountToBet" class="form-control" id="amountToBet" placeholder="Amount to bet">
     <button class="btn btn-success" id="confirmBetButton" value="Fight!">Confirm bet</button>
   </div>
-  <div class="container-fluid" id="currentBets">
+  <div class="container-fluid">
+    <div class="col-md-3" id="currentBets">
+
+    </div>
   </div>
     <button class="btn btn-outline-danger btn-lg" id="fightButton" value="Fight!">Fight</button>
 </div>
 <hr>
-<div class = "col-md-12" id="fightBox"></div>
-<div class = "col-md-12" id="resultBox"></div>
+<div class="container-fluid">
+  <div class="card-deck" id="fightBox">
+
+  </div>
+
+  <div class = "col-md-12" id="resultBox">
+
+  </div>
+
+</div>
