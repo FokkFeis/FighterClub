@@ -43,7 +43,7 @@ var getUserInfo = function(userID, selector) {
     });
 };
 
-$("select")
+$("select").not("#selBetFighter")
     .change(function() {
         selectedFighter1 = $("#select1 option:selected").text();
         getFighterInfo(selectedFighter1, 1);
