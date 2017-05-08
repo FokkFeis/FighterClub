@@ -64,6 +64,6 @@ sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFO
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/17_updateWins_SP.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/SQL/18_showBets_SP.sql"
 
-sudo sed -i "s/12345678/${PASSWORD}" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
+sudo sed -i "s/12345678/${PASSWORD}/" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
 
 echo "Done!"
