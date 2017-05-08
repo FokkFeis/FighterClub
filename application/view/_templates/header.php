@@ -30,10 +30,9 @@
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?php echo URL ; ?>fights/fighters">Fighters</a>
                     <a class="dropdown-item" href="<?php echo URL ; ?>fights/leaderboards">Fighter Leaderboards</a>
-                    <?php if(isset($_SESSION['Username']))
-                    {?>
+                    <?php if(isset($_SESSION['Username'])){?>
                       <a class="dropdown-item" href="<?php echo URL ; ?>home/userStats">My stats</a>
-                    <?php} ?>
+                    <?php } ?>
                     <a class="dropdown-item" href="<?php echo URL ; ?>home/userStats">My stats</a>
                   </div>
                 </li>
