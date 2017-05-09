@@ -265,7 +265,7 @@ $('#fightButton').on('click', function() {
 
 //IN PROGRESS
 $('#confirmBetButton').on('click', function() {
-    if ($('#amountToBet').val() > userCoins) {
+    if ($('#amountToBet').val() > userCoins || $('#amountToBet').val() < 0) {
         $('#currentBets').html("You don't have enough coins");
     } else {
         fightButton.show();
