@@ -9,4 +9,10 @@ cd "/path/to/folder"
 composer install
 ```
 
+# Live Version
+
+[Website](http://138.68.182.13)
+
+# Class Diagram
+
 ![alt text](https://raw.githubusercontent.com/FokkFeis/Lokaverkefni_V17/master/MVC%20Class%20Diagram.png "Class Diagram")
