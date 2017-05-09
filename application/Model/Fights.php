@@ -7,7 +7,7 @@ class Fights extends Model
 {
   public function getAllFighters()
   {
-    $sql = "SELECT * FROM Allfighters;";
+    $sql = "SELECT * FROM Allfighters ORDER BY FighterName ASC;";
     $query = $this->db->prepare($sql);
     $query->execute();
 
