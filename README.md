@@ -9,5 +9,4 @@ cd "/path/to/folder"
 composer install
 ```
 
-![alt text][logo]
-[logo]: https://raw.githubusercontent.com/FokkFeis/Lokaverkefni_V17/master/MVC%20Class%20Diagram.png "Class diagram"
+![alt text](https://raw.githubusercontent.com/FokkFeis/Lokaverkefni_V17/master/MVC%20Class%20Diagram.png "Class Diagram")
