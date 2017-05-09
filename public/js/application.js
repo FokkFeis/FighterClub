@@ -119,6 +119,7 @@ var fighter1wins, fighter2wins, fightTies;
 var roundWinner = [];
 
 function fight() {
+    fightButton.hide();
     getDiff(Number(fighter1_mmr), Number(fighter2_mmr));
     if (fighter1ID == fighter2ID) {
         $('#fightBox').html();
