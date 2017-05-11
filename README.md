@@ -14,7 +14,7 @@ composer install
 [Website](http://138.68.182.13)
 
 # Video demonstration
-[Website](https://youtu.be/zAlhfQFuxxg)
+[Video Link](https://youtu.be/zAlhfQFuxxg)
 
 # Class Diagram
 
