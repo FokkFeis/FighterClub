@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 PASSWORD='12345678'
-PROJECTFOLDER='fighterClub'
+PROJECTFOLDER='FighterClub'
 
 sudo apt-get update
 sudo apt-get -y upgrade
