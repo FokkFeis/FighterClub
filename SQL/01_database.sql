@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS coins;
 CREATE TABLE coins
 (
   ID INT(11) NOT NULL AUTO_INCREMENT,
-  coins INT(11),
+  coins DECIMAL(65,0),
   CONSTRAINT coins_id_pk PRIMARY KEY (ID)
 );
 
