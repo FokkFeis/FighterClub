@@ -19,12 +19,14 @@ BEGIN
     IF (NEW.strength >1000 AND NEW.strength < 1999 OR NEW.strength = 1000) THEN
       UPDATE fighter_has_leagues SET league_id = 4 WHERE fighter_id = new.ID;
 	END IF;
-
-    IF(NEW.strength >2000 AND NEW.strength <2999 OR NEW.strength = 2000) then
+    IF(NEW.strength >2000 AND NEW.strength <2999 OR NEW.strength = 2000) THEN
       UPDATE fighter_has_leagues SET league_id = 3 WHERE fighter_id = new.ID;
 	END IF;
-    IF(NEW.strength >3000 OR NEW.strength = 3000) THEN
+    IF(NEW.strength >3000 OR NEW.strength = 3000 OR NEW.strength <3499) THEN
       UPDATE fighter_has_leagues SET league_id = 2 WHERE fighter_id = new.ID;
+	END IF;
+    IF(NEW.strength >3500 OR NEW.strength = 3500) THEN 
+      UPDATE fighter_has_leagues SET league_id = 1 WHERE fighter_id = new.ID;
 	END IF;
 END $$
 DELIMITER ;
