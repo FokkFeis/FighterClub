@@ -11,7 +11,7 @@ composer install
 
 # Live Version
 
-[Website](http://138.68.182.13)
+~~[Website](http://138.68.182.13)~~ Offline, will be back up soon (Updated 02.05.18)
 
 # Video demonstration
 [Video Link](https://youtu.be/zAlhfQFuxxg)
