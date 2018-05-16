@@ -1,0 +1,151 @@
+
+/*
+ * Base structure
+ */
+
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+body {
+  padding-top: 50px;
+}
+
+
+/*
+* Typography
+*/
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+.display-1 {
+  border-bottom: 0px;
+}
+
+.pull-down {
+  margin-top: 50px;
+}
+
+.middle-align {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+/*
+* Sidebar
+*/
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+
+/* Sidebar navigation */
+
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item+.nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+
+/*
+* Dashboard
+*/
+
+
+/* Placeholders */
+
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.navigation {
+  margin-left: 33px;
+}
+.navigation a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid #454545;
+  color: #454545;
+  background: transparent;
+}
+.navigation a:hover {
+  background: #454545;
+  color: #fff;
+}
+.footer {
+  border-radius: 3px;
+  padding: 20px;
+  margin: 33px;
+  text-align: right;
+  font-size: 11px;
+}
+.footer a {
+  color: #454545;
+}
+#head, #para, #sec2, #sec3, #sec4 {
+  display: none;
+}
+
+
+/* Bootstrap class that is missing in v4*/
+
+.btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+
+.btn-group-justified .btn, .btn-group-justified .btn-group {
+  float: none;
+  display: table-cell;
+  width: 1%;
+}
+
+.btn-group-justified .btn .btn, .btn-group-justified .btn-group .btn {
+  width: 100%;
+}
+
+.btn-group-justified .btn .dropdown-menu, .btn-group-justified .btn-group .dropdown-menu {
+  left: auto;
+}
