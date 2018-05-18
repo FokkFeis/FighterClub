@@ -28,10 +28,10 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Information Center</a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/fighters">Fighters</a>
-                    <a class="dropdown-item" href="<?php echo URL ; ?>fights/leaderboards">Fighter Leaderboards</a>
+                    <a class="dropdown-item" href="fights/fighters">Fighters</a>
+                    <a class="dropdown-item" href="fights/leaderboards">Fighter Leaderboards</a>
                     <?php if(isset($_SESSION['username'])){?>
-                      <a class="dropdown-item" href="<?php echo URL ; ?>home/userStats">My stats</a>
+                      <a class="dropdown-item" href="home/userStats">My stats</a>
                     <?php } ?>
                   </div>
                 </li>
